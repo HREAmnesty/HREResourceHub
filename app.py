@@ -396,7 +396,6 @@ COUNTRY_NAMES = [
 
 #--------------------------------------------- google sheets operations---------------------------------------------------
 # Google Sheets Constants
-CREDENTIALS_FILE = 'credentials.googlesheets.json.json'
 RESOURCE_SPREADSHEET_NAME = 'Users-input-streamlit'
 ISSUE_SPREADSHEET_NAME = 'Report-an-issue-streamlit'
 SHEET_NAME = 'Sheet1'
@@ -407,7 +406,7 @@ def connect_to_gsheet(spreadsheet_name):
              "https://www.googleapis.com/auth/spreadsheets",
              "https://www.googleapis.com/auth/drive.file", 
              "https://www.googleapis.com/auth/drive"]
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_FILE, scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_name(st.secrets["google_sheets"], scope)
     client = gspread.authorize(credentials)
     spreadsheet = client.open(spreadsheet_name)
     return spreadsheet.sheet1  # Access the first sheet directly
