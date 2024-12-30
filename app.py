@@ -406,7 +406,7 @@ def connect_to_gsheet(spreadsheet_name):
              "https://www.googleapis.com/auth/spreadsheets",
              "https://www.googleapis.com/auth/drive.file", 
              "https://www.googleapis.com/auth/drive"]
-    credentials = ServiceAccountCredentials.from_json_keyfile_name(st.secrets["google_sheets"], scope)
+    credentials = ServiceAccountCredentials.from_json_keyfile_dict(st.secrets["google_sheets"], scope)
     client = gspread.authorize(credentials)
     spreadsheet = client.open(spreadsheet_name)
     return spreadsheet.sheet1  # Access the first sheet directly
