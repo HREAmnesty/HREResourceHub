@@ -560,7 +560,9 @@ def convert_columns_to_lists(df):
 
 def transform_date_column(df):
     # Transform the 'Date' column
-    df['Date'] = df['Date'].apply(lambda x: x.split('/')[1] if pd.notnull(x) and '/' in x else 'Undated')
+    df['Date'] = df['Date'].apply(
+        lambda x: x.split('/')[1] if pd.notnull(x) and '/' in x else x if pd.notnull(x) and x.isdigit() else 'Undated'
+    )
     return df
 
 # Function to add a title and subtitle
