@@ -585,7 +585,7 @@ def sidebar_filters(df):
     st.sidebar.markdown("<h2 style='font-family: Oswald;'>FILTERS</h2>", unsafe_allow_html=True)
 
     # Extract individual values for each filter option
-    individual_sources = list(df['Source'].unique())
+    individual_sources = sorted(df['Source'].unique())
 
     # Check for NaN values before exploding
     individual_languages = sorted(set(df['Language'].explode().dropna()))
@@ -780,9 +780,9 @@ The purpose of this database is to allow volunteers, staffers and members of the
         - **PODCASTS**: Podcasts or audio material.
         - **GET INVOLVED**: Participation forms for events and initiatives, workshop requests, newsletter subscriptions, and volunteer opportunities.
         - **ART AND HUMAN RIGHTS**: Initiatives that use posters, comics, artwork, photography exhibitions, and theater to teach human rights concepts.
-        - **BOOK AND HUMAN RIGHTS**: Articles that discuss or mention books that can be used to teach human rights, including initiatives like school reading clubs for human rights, etc.
+        - **BOOKS AND HUMAN RIGHTS**: Articles that discuss or mention books that can be used to teach human rights, including initiatives like school reading clubs for human rights, etc.
         - **ABOUT HRE**: Homepages and webpage sections dedicated to HRE (general information about the HRE program, news articles about HRE, announcements about HRE, HRE library in each website (if any).
-        - **NEWS AND MORE**: News articles about HRE, announcements about HRE, HRE job openings, articles related to the human rights friendly school program, and others that dont fall under any of the above categories.
+        - **NEWS AND MORE**: News articles about HRE, announcements about HRE, HRE job openings, articles related to the human rights friendly school program, and others that do not fall under any of the above categories.
         - **BLOGS**: Blog posts (also included in the category ‘News and more’ above).
         """)
 
@@ -823,7 +823,7 @@ As a policy, outputs with broken links or unavailable resources will not be dele
 
     with st.expander("**How can I report errors or suggest improvements to this database?**"):
         st.write("""
-        If you notice errors, such as an incorrect label (e.g., wrong language or type), please report them by clicking **Report error** under the **Navigation** menu at the top-left corner. Alternatively, you can email us at *****email address.
+        If you notice errors, such as an incorrect label (e.g., wrong language or type), please report them by clicking **Report error** under the **Navigation** menu at the top-left corner. Alternatively, you can email us at hreid@amnesty.org.
 We also welcome suggestions for improving the database through this channel.
 
         """)
@@ -867,7 +867,7 @@ def report_issue_page():
             st.success("Thank you for your feedback!")
 
     st.markdown("""
-    You could also email us at **email address**.
+    You could also email us at hreid@amnesty.org.
     """)
 
 
