@@ -456,7 +456,6 @@ def add_country_topic_column(df):
 def load_data(file_path):
     df = pd.read_csv(file_path)
     df = convert_columns_to_lists(df)
-    #df = secure_categories(df, TOPICS_DICT, EDU_CATEGORIES, valid_languages, valid_sources) #ADDINg this line of code.
     df = transform_date_column(df)
     df = add_country_topic_column(df)
     return df
@@ -521,6 +520,7 @@ def validate_source_string(source_string, valid_sources):
         print(f"Source '{source_string}' is not in the valid category. It was removed.")
         return ""  # Return an empty string for invalid sources
 
+#Function to check for invalid categories - Not currently incorporated into main function. 
 def secure_categories(df, topics_dict, edu_categories, valid_languages, valid_sources):
     """
     Processes a DataFrame by applying specific transformations to selected columns.
