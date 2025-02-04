@@ -901,7 +901,7 @@ def main_page(file_path):
     selected_source, selected_language, selected_tags, selected_types, selected_years, keyword_search, filter_unavailable_links = sidebar_filters(df)
     filtered_df = apply_filters(df, selected_source, selected_language, selected_tags, selected_types, selected_years, keyword_search, filter_unavailable_links)
     display_results(filtered_df)
-    youtube_video_url = "https://www.youtube.com/watch?v=_TpQubxoH50"
+    youtube_video_url = "https://youtu.be/0FWDTUIfr0c"
     st.sidebar.markdown("<h3 style='font-family: Oswald;'>TUTORIAL: HOW TO USE THIS DATABASE</h3>", unsafe_allow_html=True)
     st.sidebar.video(youtube_video_url)
  
